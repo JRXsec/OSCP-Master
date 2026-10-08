@@ -18,11 +18,10 @@ La segunda es el servicio, es la que usa el modo usuario (ring 3), revisa los ar
 
 Y la tercera es a nivel de servidor, en esta se monitorizan las partidas comúnmente con inteligencia artificial para ver el comportamiento de los jugadores y detectar posibles trampas. Algunas también usan machine learning para ir aprendiendo nuevos tipos de trampas y “banearlas” más rápido.
 
-**Posibles formas de evadirlos:**
 
-**Ejemplos:**
+# **Ejemplos:**
 
-BattleEye:
+## BattleEye:
 
 BattleEye se ejecuta directamente sobre el kernel como los demás.
 
@@ -30,13 +29,13 @@ Está centrado en el controlador de kernel BEDaisy.sys, registra callbacks para 
 
  También inserta instrucciones int3 antes de las llamadas a la API de Windows enganchadas para evitar que se ejecute cualquier aplicación antes que el.
 
-Easy Anti-Cheat:
+## Easy Anti-Cheat:
 
 Este anti-cheat se ejecuta a nivel de kernel pero solo cuando ejecutamos el juego, así que en el momento en el que se ejecuta monitoriza todos los procesos que estén corriendo en ese momento.
 
 Es el que más trampas permite ya que no se ejecuta desde que se inicia el ordenador, además de que hay múltiples usuarios que reportan el mismo problema, porque si el controlador EAC falla,  accede a memoria que no debe o choca con otros drivers o con funciones de seguridad de Windows, el sistema operativo se protege deteniendo todo y mostrando un BSOD (Pantalla azul)
 
-VANGUARD:
+## VANGUARD:
 
 Carga vgk.sys durante el arranque y aplica un modelo de “Whitelist” de drivers para tener mucho control sobre el sistema, por este motivo bloquea muchísimas cosas, entre ellas:  controladores de kernel sin firma, controladores que no son de confianza, controladores que son vulnerables, herramientas de depuración y inspección…
 
