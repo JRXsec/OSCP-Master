@@ -1,61 +1,47 @@
-Crear script en Python que haga la enumeración pasiva y activa que se ha visto en clase, también crear otro script en el que recoja información de las cabeceras de seguridad al hacer una petición a cualquier sitio, con ello , crea un servidor HTTP y captura las cabeceras “user-agent” de las peticiones.  
+# AGUACATE-RECON
 
-Investiga que se puede hacer con el user-agent a grandes rasgos
+## Descripción del proyecto
 
-Puntuara positivamente como la herramienta enseña la información recopilada
+Crear un script en Python que realice tareas de enumeración pasiva y activa vistas en clase, así como el análisis de cabeceras de seguridad HTTP. La herramienta también permite estudiar cómo responde una web ante distintos valores de la cabecera `User-Agent`.
 
-Script enumeración pasiva y activa.
+Se investiga el uso del User-Agent y su influencia en las respuestas de los servidores web.
 
+Se prioriza que la herramienta presente la información recopilada de forma clara y organizada.
 
-**Resumen de la herramienta:**
+## Resumen de la herramienta
 
-Esta herramienta es interactiva, está programada en python3 y 
+Esta herramienta es interactiva, está programada en Python 3 y permite realizar tareas de reconocimiento web y de infraestructura, tanto pasivas como activas, además de analizar cabeceras HTTP, configuraciones de seguridad y respuestas del servidor.
 
+## Modos de uso
 
-**Modos de uso:**
+1. **Reconocimiento pasivo:** recopila información DNS, direcciones IP, geolocalización aproximada, ISP/ASN, subdominios comunes, certificados públicos mediante `crt.sh` e historial de Wayback Machine.
+2. **Reconocimiento activo:** comprueba certificados TLS, cabeceras HTTP y puertos abiertos mediante Nmap, con detección de versiones opcional.
+3. **Reconocimiento completo:** combina el reconocimiento pasivo y el activo.
+4. **Análisis de cabeceras web:** examina cabeceras de seguridad como CSP, HSTS y X-Frame-Options, además de códigos de estado HTTP, cookies, redirecciones y rutas comunes. Permite seleccionar distintos perfiles de User-Agent para comparar las respuestas del servidor.
+5. **Salir:** cierra la herramienta.
 
-1. Reconocimiento pasivo: recopila información DNS, IP, geolocalización aproximada, ISP/ASN, subdominios comunes, certificados públicos mediante "crt.sh" e historial de "Wayback Machine".
+## Capturas de las pruebas
 
-2. Reconocimiento activo: comprueba certificados TLS, cabeceras HTTP y puertos abiertos mediante Nmap, con detección de versiones opcional.
+### Reconocimiento completo (pasivo + activo)
 
-3. Reconocimiento completo: combina el reconocimiento pasivo y el activo.
+En las siguientes capturas se muestra el resultado del reconocimiento completo.
 
-4. Análisis de cabeceras web: examina cabeceras de seguridad como "CSP", "HSTS" y "X-Frame-Options" según cómo responde a las peticiones HTTP que le enviamos y qué información expone.
+![Reconocimiento pasivo: registros DNS y subdominios comunes](Pasted%20image%2020261014203305.png)
 
-5. Salir: cierra la herramienta.
+En esta captura se puede observar una ejecución sin el modo verbose, lo que permite obtener una salida más limpia con los registros DNS y los subdominios comunes.
 
+![Certificados TLS y cabeceras HTTP](Pasted%20image%2020261014203402.png)
 
-**Capturas de las pruebas con un servidor web.**
+Aquí se muestran los certificados TLS y algunas de las cabeceras HTTP detectadas.
 
-Capturas del modo de análisis completo (Pasivo + Activo)
+![Cabeceras y escaneo de puertos con Nmap](Pasted%20image%2020261014203521.png)
 
-![[Pasted image 20261014203305.png]]
-En esta se puede observar que no elegimos el modo Verbose para tener una respuesta más limpia, 
-los registros dns y los subdominios comunes.
+En esta última parte se muestran más cabeceras y un análisis rápido de los 100 puertos más comunes mediante Nmap.
 
-![[Pasted image 20261014203402.png]]
-Aquí se pueden ver los certificados TLS y algunas cabeceras.
+### Análisis de cabeceras web (opción 4)
 
+![Selector de User-Agent](Pasted%20image%2020261014205839.png)
 
+La herramienta permite seleccionar distintos perfiles de User-Agent para comprobar cómo responde una web ante diferentes agentes.
 
-
-![[Pasted image 20261014203521.png]]
-Aquí terminamos de ver algunas cabeceras y un análisis rápido de los 100 puertos mas comunes en nmap.
-
-
-Capturas opción 4 Cabeceras Web:
-
-![[Pasted image 20261014205839.png]]
-Aquí podemos ver las opciones de diferentes user-agents que podemos pre-seleccionar para ver como responde la web.
-
-![[Pasted image 20261014210407.png]]
-Aquí vemos las cabeceras de respuesta con un navegador mozilla en un Android 15.
-
-
-**Investigación sobre el user-agent.**
-
-El user-agent es una cabecera muy importante a la hora de hacer un análisis sobre una web ya que la página se puede comportar de forma diferente dependiendo de el agente aplicando filtros sobre el cliente.
-
-Por ejemplo, un servidor puede devolver una respuesta diferente dependiendo de si la petición procede de Chrome, Firefox o Safari, o incluso bloquear determinadas peticiones si detecta un agente que considera sospechoso. 
-
-Esto puede ayudarnos a identificar filtros básicos, restricciones de acceso o configuraciones específicas del servidor.
+![
