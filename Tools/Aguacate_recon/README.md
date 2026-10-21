@@ -1,47 +1,59 @@
 # AGUACATE-RECON
 
-## Descripción del proyecto
+## Project description
 
-Crear un script en Python que realice tareas de enumeración pasiva y activa vistas en clase, así como el análisis de cabeceras de seguridad HTTP. La herramienta también permite estudiar cómo responde una web ante distintos valores de la cabecera `User-Agent`.
+Build a Python script that performs the passive and active enumeration techniques covered in class, along with an analysis of HTTP security headers. The tool also makes it possible to study how a website responds to different values of the `User-Agent` header.
 
-Se investiga el uso del User-Agent y su influencia en las respuestas de los servidores web.
+It also looks into the `User-Agent` header and how it influences web server responses.
 
-Se prioriza que la herramienta presente la información recopilada de forma clara y organizada.
+The focus is on presenting the collected information in a clear and organized way.
 
-## Resumen de la herramienta
+![Assignment statement](assets/Pasted%20image%2020261014183352.png)
 
-Esta herramienta es interactiva, está programada en Python 3 y permite realizar tareas de reconocimiento web y de infraestructura, tanto pasivas como activas, además de analizar cabeceras HTTP, configuraciones de seguridad y respuestas del servidor.
+## Tool overview
 
-## Modos de uso
+This is an interactive tool written in Python 3. It performs passive and active web and infrastructure reconnaissance, and analyzes HTTP headers, security settings and server responses.
 
-1. **Reconocimiento pasivo:** recopila información DNS, direcciones IP, geolocalización aproximada, ISP/ASN, subdominios comunes, certificados públicos mediante `crt.sh` e historial de Wayback Machine.
-2. **Reconocimiento activo:** comprueba certificados TLS, cabeceras HTTP y puertos abiertos mediante Nmap, con detección de versiones opcional.
-3. **Reconocimiento completo:** combina el reconocimiento pasivo y el activo.
-4. **Análisis de cabeceras web:** examina cabeceras de seguridad como CSP, HSTS y X-Frame-Options, además de códigos de estado HTTP, cookies, redirecciones y rutas comunes. Permite seleccionar distintos perfiles de User-Agent para comparar las respuestas del servidor.
-5. **Salir:** cierra la herramienta.
+## Usage modes
 
-## Capturas de las pruebas
+1. **Passive reconnaissance:** gathers DNS information, IP addresses, approximate geolocation, ISP/ASN, common subdomains, public certificates via `crt.sh` and Wayback Machine history.
+2. **Active reconnaissance:** checks TLS certificates, HTTP headers and open ports with Nmap, with optional version detection.
+3. **Full reconnaissance:** combines passive and active reconnaissance.
+4. **Web header analysis:** examines security headers such as CSP, HSTS and X-Frame-Options, as well as HTTP status codes, cookies, redirects and common paths. Lets you pick different User-Agent profiles to compare the server's responses.
+5. **Exit:** closes the tool.
 
-### Reconocimiento completo (pasivo + activo)
+## Test screenshots
 
-En las siguientes capturas se muestra el resultado del reconocimiento completo.
+### Full reconnaissance (passive + active)
 
-![Reconocimiento pasivo: registros DNS y subdominios comunes](Pasted%20image%2020261014203305.png)
+The following screenshots show the output of a full reconnaissance run.
 
-En esta captura se puede observar una ejecución sin el modo verbose, lo que permite obtener una salida más limpia con los registros DNS y los subdominios comunes.
+![Passive reconnaissance: DNS records and common subdomains](assets/Pasted%20image%2020261014203305.png)
 
-![Certificados TLS y cabeceras HTTP](Pasted%20image%2020261014203402.png)
+This run was done without verbose mode, which gives a cleaner output with the DNS records and common subdomains.
 
-Aquí se muestran los certificados TLS y algunas de las cabeceras HTTP detectadas.
+![TLS certificates and HTTP headers](assets/Pasted%20image%2020261014203402.png)
 
-![Cabeceras y escaneo de puertos con Nmap](Pasted%20image%2020261014203521.png)
+Here you can see the TLS certificates and some of the detected HTTP headers.
 
-En esta última parte se muestran más cabeceras y un análisis rápido de los 100 puertos más comunes mediante Nmap.
+![Headers and Nmap port scan](assets/Pasted%20image%2020261014203521.png)
 
-### Análisis de cabeceras web (opción 4)
+This last part shows more headers and a quick scan of the 100 most common ports with Nmap.
 
-![Selector de User-Agent](Pasted%20image%2020261014205839.png)
+### Web header analysis (option 4)
 
-La herramienta permite seleccionar distintos perfiles de User-Agent para comprobar cómo responde una web ante diferentes agentes.
+![User-Agent selector](assets/Pasted%20image%2020261014205839.png)
 
-![
+The tool lets you choose from several User-Agent profiles to check how a website responds to different agents.
+
+![Response headers using Chrome on Android 15](assets/Pasted%20image%2020261014210407.png)
+
+Here you can see the response headers when the request is sent as Chrome on Android 15: security headers present and missing, cookies and their flags, and other response headers.
+
+## User-Agent research
+
+The `User-Agent` is a very important header when analyzing a website, because the page can behave differently depending on the agent, applying filters based on the client.
+
+For example, a server may return a different response depending on whether the request comes from Chrome, Firefox or Safari, or even block certain requests if it detects an agent it considers suspicious.
+
+This can help identify basic filters, access restrictions or server-specific configurations.
