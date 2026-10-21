@@ -1,12 +1,12 @@
 # 🔎 osint_v2
 
-**OSINT enfocado en la búsqueda de personas.** Parte de un solo dato (email, nombre, username o teléfono) y reúne en un reporte lo que hay en fuentes abiertas: cuentas en redes, filtraciones, perfiles y búsquedas listas para abrir.
+**OSINT focused on finding people.** Start from a single piece of data (email, name, username or phone number) and it gathers everything available in open sources into one report: social media accounts, data breaches, profiles and ready-to-open searches.
 
-Gratis. Sin API keys. Sin registrarse en nada.
+Free. No API keys. No sign-up required.
 
 ---
 
-## ⚡ Instalación rápida
+## ⚡ Quick install
 
 ```bash
 git clone https://github.com/JRXsec/OSCP-Master.git && cd OSCP-Master/Tools/osint_v2
@@ -18,39 +18,41 @@ python3 main.py
 
 ---
 
-## 🧠 Cómo funciona
+## 🧠 How it works
 
-1. **Le das un dato** de la persona. Detecta solo si es un email, un nombre, un username o un teléfono.
-2. **Lanza todas las fuentes a la vez**, con una barra de progreso para cada una. Si una falla, las demás siguen.
-3. **Te enseña los resultados** en la terminal y genera un **reporte HTML** con enlaces clicables y un buscador, que se abre solo en el navegador.
+1. **You give it one piece of data** about the person. It automatically detects whether it's an email, a name, a username or a phone number.
+2. **It queries every source at once**, with a progress bar for each one. If one fails, the rest keep going.
+3. **It shows you the results** in the terminal and generates an **HTML report** with clickable links and a search filter, which opens automatically in your browser.
+
+> The tool's interface is in Spanish.
 
 ---
 
-## 👤 Qué saca de cada dato
+## 👤 What it finds from each input
 
-| Empiezas con… | Obtienes |
+| You start with… | You get |
 |---|---|
-| 📧 **Email** | Filtraciones en las que aparece, perfil de Gravatar, sitios donde está registrado y cuentas con el mismo usuario |
-| 🪪 **Nombre completo** | Todas las combinaciones del nombre (Pepe Pepito García → Pepe García, Pepe Pepito…), con y sin tildes, buscadas en ~700 redes, Google y LinkedIn |
-| 🏷️ **Username** | Cuentas con ese nombre de usuario en ~700 sitios |
-| 📱 **Teléfono** | País, zona, operador, tipo de línea, enlace a WhatsApp y Telegram, y búsquedas del número en todos sus formatos |
-| 🌐 **Dominio** | WHOIS, DNS, subdominios y servicios que usa |
+| 📧 **Email** | Data breaches it appears in, Gravatar profile, sites where it's registered and accounts with the same username |
+| 🪪 **Full name** | Every combination of the name (Pepe Pepito García → Pepe García, Pepe Pepito…), with and without accents, searched across ~700 sites, Google and LinkedIn |
+| 🏷️ **Username** | Accounts with that username on ~700 sites |
+| 📱 **Phone** | Country, region, carrier, line type, WhatsApp and Telegram links, and searches for the number in all its formats |
+| 🌐 **Domain** | WHOIS, DNS, subdomains and the services it uses |
 
 ---
 
-## 🛠️ Uso
+## 🛠️ Usage
 
 ```bash
-python3 main.py                          # menú interactivo
-python3 main.py pepe@gmail.com           # detecta el tipo solo
-python3 main.py "Pepe Pepito García"     # nombre completo
-python3 main.py +34600123456             # teléfono
+python3 main.py                          # interactive menu
+python3 main.py pepe@gmail.com           # auto-detects the input type
+python3 main.py "Pepe Pepito García"     # full name
+python3 main.py +34600123456             # phone number
 ```
 
-Los reportes se guardan en `reports/`.
+Reports are saved in `reports/`.
 
 ---
 
-## ⚠️ Aviso
+## ⚠️ Disclaimer
 
-Solo para **uso educativo e investigación autorizada**. Respeta la privacidad y las leyes de protección de datos de tu país (RGPD en Europa).
+For **educational use and authorized investigations only**. Respect privacy and the data protection laws of your country (GDPR in Europe).
